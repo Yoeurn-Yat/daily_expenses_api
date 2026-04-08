@@ -14,9 +14,15 @@ class AuthController extends Controller
     {
         $input = $request->validate([
             'name' => ['required', 'string'],
-            'email' => ['required', 'email', 'unique:users'],
+            'email' => ['required', 'email'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
+        $existingUser = User::where('email', $input['email'])->first();
+        if ($existingUser) {
+            return response()->json([
+                'message' => 'User already exists'
+            ], 409);
+        }
 
         $input['password'] = bcrypt($input['password']);
         $user = User::create($input);
