@@ -27,7 +27,7 @@ class CategoryController extends Controller
     {
         $input = $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'value' => ['nullable', 'numeric'],
+            'value' => ['nullable', 'string', 'max:255'],
             'color' => ['nullable', 'string', 'max:50'],
         ]);
 
