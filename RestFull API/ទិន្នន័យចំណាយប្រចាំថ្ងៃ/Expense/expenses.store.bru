@@ -1,0 +1,26 @@
+meta {
+  name: expenses.store
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/expenses
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "category_id": "",
+    "name": "",
+    "amount": "",
+    "icon": "",
+    "description": "",
+    "payment_method": ""
+  }
+}

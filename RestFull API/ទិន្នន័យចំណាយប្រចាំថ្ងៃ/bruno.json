@@ -1,6 +1,6 @@
 {
   "version": "1",
-  "name": "Laravel",
+  "name": "ទិន្នន័យចំណាយប្រចាំថ្ងៃ",
   "type": "collection",
   "ignore": [
     "node_modules",

@@ -8,14 +8,19 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Category::all();
-        return response()->json([
-            'data' => $categories,
-            'message' => 'Categories retrieved successfully',
-            'status' => 200
-        ], 200);
+        $request->validate([
+            'size' => ['nullable', 'integer', 'min:1'],
+            'page' => ['nullable', 'integer', 'min:1'],
+        ]);
+
+        $size = $request->input('size', 10);
+        $page = $request->input('page', 1);
+
+        $categories = Category::query()->paginate($size, ['*'], 'page', $page);
+
+        return $this->responsePaginate($categories);
     }
 
     public function store(Request $request)

@@ -1,0 +1,27 @@
+meta {
+  name: categories.update
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/categories/:category
+  body: json
+  auth: bearer
+}
+
+params:path {
+  category: 
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "name": "",
+    "value": "",
+    "color": ""
+  }
+}

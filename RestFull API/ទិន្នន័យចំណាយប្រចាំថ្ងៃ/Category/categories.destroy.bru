@@ -1,0 +1,19 @@
+meta {
+  name: categories.destroy
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/categories/:category
+  body: none
+  auth: bearer
+}
+
+params:path {
+  category: 
+}
+
+auth:bearer {
+  token: {{token}}
+}

@@ -1,0 +1,15 @@
+meta {
+  name: expenses.index
+  type: http
+  seq: 1
+}
+
+get {
+  url: {{baseUrl}}/expenses
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

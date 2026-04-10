@@ -1,0 +1,30 @@
+meta {
+  name: expenses.update
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/expenses/:expense
+  body: json
+  auth: bearer
+}
+
+params:path {
+  expense: 
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "category_id": "",
+    "name": "",
+    "amount": "",
+    "icon": "",
+    "description": "",
+    "payment_method": ""
+  }
+}

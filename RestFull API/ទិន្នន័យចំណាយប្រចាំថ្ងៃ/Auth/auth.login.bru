@@ -7,13 +7,16 @@ meta {
 post {
   url: {{baseUrl}}/login
   body: json
-  auth: inherit
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
 }
 
 body:json {
   {
-    "email":"user@gmail.com",
-    "password":"password"
-  //   "name":"User"
+    "email": "yoeurnyat@gmail.com",
+    "password": "password"
   }
 }

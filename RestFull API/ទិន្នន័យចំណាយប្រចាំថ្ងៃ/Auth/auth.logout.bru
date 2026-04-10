@@ -1,0 +1,15 @@
+meta {
+  name: auth.logout
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/logout
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
